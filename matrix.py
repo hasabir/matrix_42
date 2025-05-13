@@ -5,6 +5,7 @@ K = TypeVar('K')
 
 class Matrix(Generic[K]):
     def __init__(self, matrix: List[List[K]]):
+        super().__init__()
         self.matrix = matrix
         self.rows = len(matrix)
         self.columns = len(matrix[0]) if matrix else 0

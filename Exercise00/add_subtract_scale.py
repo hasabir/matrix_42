@@ -1,44 +1,40 @@
 from typing import TypeVar, Generic, List
+import os
+import sys
+sys.path.append(os.path.abspath(os.path.join(os.getcwd(), '../')))
+from  vector import Vector
+from matrix import Matrix
+
 
 K = TypeVar('K')
 
-class Vector(Generic[K]):
-    def __init__(self, vector: 'Vector[K]'):
-        self.vec = vector
-    
-    def __getitem__(self, i: int) -> List[K]:
-        return self.vec[i]
-    
-    def __str__(self) -> str:
-        return  "\n".join("[" + ", ".join(str(item)) + "]" for item in self.vec)
-    
-    def __repr__(self) -> str:
-        return f"Vector({self.vec})"
-
+class Vector(Vector, Generic[K]):
     def add(self, v: 'Vector[K]') -> None:
-        for i in range(len(self.vec)):
-            self.vec[i] += v[i]
+        if len(self.vec) == 0:
+            self.vec = v.vec
+        elif len(v.vec) != len(self.vec):
+            raise Exception("Different size vectors")
+        else:
+            for i in range(len(self.vec)):
+                self.vec[i] += v[i]
+        return self.vec
         
     def sub(self, v: 'Vector[K]') -> None:
         if len(v.vec) != len(self.vec):
             raise Exception("Different size vectors")
         for i in range(len(self.vec)):
             self.vec[i] -= v[i]
+        return self.vec
         
     
     def scl(self, a: K) -> None:
         for i in range(len(self.vec)):
             self.vec[i] *= a
+        return self.vec
     
 
 
-class Matrix(Generic[K]):
-    def __init__(self, matrix: List[List[K]]):
-        self.matrix = matrix
-    
-    def __str__(self) -> str:
-        return "[" + ",\n ".join("[" + ", ".join(map(str, row)) + "]" for row in self.matrix) + "]"
-    
+class Matrix(Matrix, Generic[K]):    
     def add(self, v: 'Matrix[K]') -> None:
         if len(self.matrix) != len(v.matrix):
             raise ValueError("Matrices must have same number of rows")
@@ -47,6 +43,7 @@ class Matrix(Generic[K]):
                 raise ValueError("All rows must have same length")
             for j in range(len(self.matrix[i])):
                 self.matrix[i][j] += v.matrix[i][j]
+        return self.matrix
 
     def sub(self, v: 'Matrix[K]') -> None:
         if len(self.matrix) != len(v.matrix):
@@ -56,11 +53,13 @@ class Matrix(Generic[K]):
                 raise ValueError("All rows must have same length")
             for j in range(len(self.matrix[i])):
                 self.matrix[i][j] += v.matrix[i][j]
-    
+        return self.matrix
+
     def scl(self, a: K):
         for i in range(len(self.matrix)):
             for j in range(len(self.matrix[i])):
                 self.matrix[i][j] *= a
+        return self.matrix
 
 
 def main():
