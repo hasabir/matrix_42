@@ -17,20 +17,20 @@ class Vector(Vector, Generic[K]):
         else:
             for i in range(len(self.vec)):
                 self.vec[i] += v[i]
-        return self.vec
+        return Vector(self.vec)
         
     def sub(self, v: 'Vector[K]') -> None:
         if len(v.vec) != len(self.vec):
             raise Exception("Different size vectors")
         for i in range(len(self.vec)):
             self.vec[i] -= v[i]
-        return self.vec
+        return Vector(self.vec)
         
     
     def scl(self, a: K) -> None:
         for i in range(len(self.vec)):
             self.vec[i] *= a
-        return self.vec
+        return Vector(self.vec)
     
 
 
@@ -43,7 +43,7 @@ class Matrix(Matrix, Generic[K]):
                 raise ValueError("All rows must have same length")
             for j in range(len(self.matrix[i])):
                 self.matrix[i][j] += v.matrix[i][j]
-        return self.matrix
+        return Matrix(self.matrix)
 
     def sub(self, v: 'Matrix[K]') -> None:
         if len(self.matrix) != len(v.matrix):
@@ -53,13 +53,13 @@ class Matrix(Matrix, Generic[K]):
                 raise ValueError("All rows must have same length")
             for j in range(len(self.matrix[i])):
                 self.matrix[i][j] += v.matrix[i][j]
-        return self.matrix
+        return Matrix(self.matrix)
 
     def scl(self, a: K):
         for i in range(len(self.matrix)):
             for j in range(len(self.matrix[i])):
                 self.matrix[i][j] *= a
-        return self.matrix
+        return Matrix(self.matrix)
 
 
 def main():
