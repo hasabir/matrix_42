@@ -1,11 +1,10 @@
 from typing import TypeVar, Generic, List
-
+from Exercise00.add_subtract_scale import MatrixAddSubScl
 K = TypeVar('K')
 
-
+@MatrixAddSubScl
 class Matrix(Generic[K]):
     def __init__(self, matrix: List[List[K]]):
-        super().__init__()
         self.matrix = matrix
         self.rows = len(matrix)
         self.columns = len(matrix[0]) if matrix else 0
