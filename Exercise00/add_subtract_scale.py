@@ -9,7 +9,7 @@ from matrix import Matrix
 K = TypeVar('K')
 
 class Vector(Vector, Generic[K]):
-    def add(self, v: 'Vector[K]') -> None:
+    def add(self, v: 'Vector[K]') -> 'Vector[K]':
         if len(self.vec) == 0:
             self.vec = v.vec
         elif len(v.vec) != len(self.vec):
@@ -19,7 +19,7 @@ class Vector(Vector, Generic[K]):
                 self.vec[i] += v[i]
         return Vector(self.vec)
         
-    def sub(self, v: 'Vector[K]') -> None:
+    def sub(self, v: 'Vector[K]') -> 'Vector[K]':
         if len(v.vec) != len(self.vec):
             raise Exception("Different size vectors")
         for i in range(len(self.vec)):
@@ -27,7 +27,7 @@ class Vector(Vector, Generic[K]):
         return Vector(self.vec)
         
     
-    def scl(self, a: K) -> None:
+    def scl(self, a: K) -> 'Vector[K]':
         for i in range(len(self.vec)):
             self.vec[i] *= a
         return Vector(self.vec)
@@ -35,7 +35,7 @@ class Vector(Vector, Generic[K]):
 
 
 class Matrix(Matrix, Generic[K]):    
-    def add(self, v: 'Matrix[K]') -> None:
+    def add(self, v: 'Matrix[K]') -> Generic[K]:
         if len(self.matrix) != len(v.matrix):
             raise ValueError("Matrices must have same number of rows")
         for i in range(len(self.matrix)):
@@ -45,7 +45,7 @@ class Matrix(Matrix, Generic[K]):
                 self.matrix[i][j] += v.matrix[i][j]
         return Matrix(self.matrix)
 
-    def sub(self, v: 'Matrix[K]') -> None:
+    def sub(self, v: 'Matrix[K]') -> Generic[K]:
         if len(self.matrix) != len(v.matrix):
             raise ValueError("Matrices must have same number of rows")
         for i in range(len(self.matrix)):
@@ -55,7 +55,7 @@ class Matrix(Matrix, Generic[K]):
                 self.matrix[i][j] += v.matrix[i][j]
         return Matrix(self.matrix)
 
-    def scl(self, a: K):
+    def scl(self, a: K) -> Generic[K]:
         for i in range(len(self.matrix)):
             for j in range(len(self.matrix[i])):
                 self.matrix[i][j] *= a

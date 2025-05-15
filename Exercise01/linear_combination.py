@@ -13,7 +13,7 @@ def linear_combination[K](u: List[Vector[K]], coefs: List[K]) -> Vector[K]:
             raise Exception("The two arrays provided as input are not of the same size")
         result = Vector([])
         for i in range(len(coefs)): #a × v1 + b × v2 ... + m × vn
-            result.add(u[i].scl(coefs[i]))        
+            result.add(u[i].scl(coefs[i]))
 
     except Exception as e:
         print(f"Error: {e}")
