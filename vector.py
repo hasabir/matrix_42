@@ -1,4 +1,4 @@
-from matrix import Matrix
+# from matrix import Matrix
 from typing import TypeVar, Generic, List
 from Exercise00.add_subtract_scale import VectorAddSubScl
 from Exercise03.dot_product import DotProduct
@@ -28,8 +28,8 @@ class Vector(Generic[K]):
     def shape(self):
         return f"({self.size()},)"
     
-    def to_matrix(self, columns, rows):
-        return Matrix([[self.vec[row + col * rows] for col in range(columns)] for row in range(rows)])
+    # def to_matrix(self, columns, rows):
+    #     return Matrix([[self.vec[row + col * rows] for col in range(columns)] for row in range(rows)])
     
     
 

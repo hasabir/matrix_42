@@ -1,5 +1,6 @@
 from typing import TypeVar, Generic, List
 from Exercise00.add_subtract_scale import MatrixAddSubScl
+from vector import Vector
 K = TypeVar('K')
 
 @MatrixAddSubScl
@@ -23,4 +24,5 @@ class Matrix(Generic[K]):
         for i in range(self.columns):
             for j in range(self.rows):
                 vec.append(self.matrix[j][i])
-        return vec
+        return Vector(vec)
+    

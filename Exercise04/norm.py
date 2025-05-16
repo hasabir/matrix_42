@@ -1,11 +1,13 @@
 from typing import TypeVar, Generic, List, Type
 import numpy as np
 
-k = TypeVar('K')
+K = TypeVar('K')
 f32 = np.float32
 
 
-def Norm(cls: Type['Vector[K]']) -> Type['Vector[k]']:
+
+
+def Norm(cls: Type) -> Type:
     def norm_1(self) -> f32:
         sum = 0
         for vec in self.vec:
@@ -22,7 +24,8 @@ def Norm(cls: Type['Vector[K]']) -> Type['Vector[k]']:
     def norm_inf(self) -> f32:
         return max([vec if vec >= 0 else -vec for vec in self.vec])
     
-    cls.norm = norm
-    cls.norm_1 = norm_1
-    cls.norm_inf = norm_inf
+    for name, method in [("norm", norm), ("norm_1", norm_1), ("norm_inf", norm_inf)]:
+        if not hasattr(cls, name):
+            setattr(cls, name, method)
+
     return cls
