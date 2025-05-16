@@ -1,9 +1,11 @@
 from matrix import Matrix
 from typing import TypeVar, Generic, List
 from Exercise00.add_subtract_scale import VectorAddSubScl
+from Exercise03.dot_product import Dot
 K = TypeVar('K')
 
 @VectorAddSubScl
+@Dot
 class Vector(Generic[K]):
     def __init__(self, vector: List[K]):
         self.vec = vector

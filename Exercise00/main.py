@@ -38,7 +38,7 @@ def main():
         
         m1.scl(3)
         print(f"{'*' * 20}3 * m1 {'*' * 20}\n{m1}")
-   except Exception() as e:
+   except Exception as e:
        print(f"Error: {e}")
 
 

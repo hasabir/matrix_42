@@ -9,22 +9,26 @@ K = TypeVar('K')
 def VectorAddSubScl(cls: Type['Vector[K]']) -> Type['Vector[K]']:
     def add(self, v: 'Vector[K]') -> 'Vector[K]':
         if len(self.vec) == 0:
-            new_vec = v.vec
+            self.vec = v.vec
         elif len(v.vec) != len(self.vec):
-            raise ValueError("Different size vectors")
+            raise Exception("Different size vectors")
         else:
-            new_vec = [self.vec[i] + v[i] for i in range(len(self.vec))]
-            return cls(new_vec)
-
+            for i in range(len(self.vec)):
+                self.vec[i] += v[i]
+        return cls(self.vec)
+        
     def sub(self, v: 'Vector[K]') -> 'Vector[K]':
         if len(v.vec) != len(self.vec):
-            raise ValueError("Different size vectors")
-        new_vec = [self.vec[i] - v[i] for i in range(len(self.vec))]
-        return cls(new_vec)
-
+            raise Exception("Different size vectors")
+        for i in range(len(self.vec)):
+            self.vec[i] -= v[i]
+        return cls(self.vec)
+        
+    
     def scl(self, a: K) -> 'Vector[K]':
-        new_vec = [x * a for x in self.vec]
-        return cls(new_vec)
+        for i in range(len(self.vec)):
+            self.vec[i] *= a
+        return cls(self.vec)
 
     cls.add = add
     cls.sub = sub
