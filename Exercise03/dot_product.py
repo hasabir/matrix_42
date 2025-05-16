@@ -9,7 +9,7 @@ f32 = np.float32
 K = TypeVar('K')
 
 
-def Dot(cls: Type['Vector[K]']) -> Type['Vector[K]']:
+def DotProduct(cls: Type['Vector[K]']) -> Type['Vector[K]']:
     def dot(self, v: 'Vector[K]') -> K:
         if self.shape() != v.shape():
             raise Exception("Vectors are not the same shape")
@@ -18,5 +18,6 @@ def Dot(cls: Type['Vector[K]']) -> Type['Vector[K]']:
         for x in result:
             sum += x
         return sum
+    
     cls.dot = dot
     return cls
