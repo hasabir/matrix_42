@@ -20,4 +20,5 @@ def DotProduct(cls: Type['Vector[K]']) -> Type['Vector[K]']:
         return sum
     
     cls.dot = dot
+
     return cls

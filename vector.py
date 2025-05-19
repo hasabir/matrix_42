@@ -18,6 +18,9 @@ class Vector(Generic[K]):
     def __str__(self) -> str:
         return str(self.vec)
         # return  "\n".join("[" + ", ".join(str(item)) + "]" for item in self.vec)
+    
+    def __len__(self) -> int:
+        return len(self.vec)
 
     def print(self):
         print(self.vec)
@@ -26,7 +29,8 @@ class Vector(Generic[K]):
         return len(self.vec)
     
     def shape(self):
-        return f"({self.size()},)"
+        return (self.size(), )
+
     
     # def to_matrix(self, columns, rows):
     #     return Matrix([[self.vec[row + col * rows] for col in range(columns)] for row in range(rows)])
