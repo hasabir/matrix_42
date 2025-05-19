@@ -14,3 +14,19 @@ def main():
     print(m.trace())
     m = Matrix([[1, 2], [3, 4], [5, 6]])
     print(m.trace())
+    
+    print("********************")
+    
+    u = Matrix([[1, 0], [0, 1]])
+    print(u.trace())
+    
+    u = Matrix([
+        [2., -5., 0.],
+        [4., 3., 7.],
+        [-2., 3., 4.],
+        ])
+    print(u.trace())
+
+
+if __name__ == "__main__":
+    main()
