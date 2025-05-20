@@ -1,7 +1,4 @@
 from typing import TypeVar, Generic, List, Type
-import os
-import sys
-sys.path.append(os.path.abspath(os.path.join(os.getcwd(), '../')))
 
 
 K = TypeVar('K')

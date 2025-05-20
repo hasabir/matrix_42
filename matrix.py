@@ -3,9 +3,11 @@ from Exercise00.add_subtract_scale import MatrixAddSubScl
 from Exercise07.linear_map_matrix_multiplication import LinearMapMatrixMultiplication
 from vector import Vector
 from Exercise08.trace import Trace
+from Exercise09.transpose import Transpose
 K = TypeVar('K')
 
 @Trace
+@Transpose
 @MatrixAddSubScl
 @LinearMapMatrixMultiplication
 class Matrix(Generic[K]):
