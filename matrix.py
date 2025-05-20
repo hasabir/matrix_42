@@ -2,8 +2,10 @@ from typing import TypeVar, Generic, List
 from Exercise00.add_subtract_scale import MatrixAddSubScl
 from Exercise07.linear_map_matrix_multiplication import LinearMapMatrixMultiplication
 from vector import Vector
+from Exercise08.trace import Trace
 K = TypeVar('K')
 
+@Trace
 @MatrixAddSubScl
 @LinearMapMatrixMultiplication
 class Matrix(Generic[K]):
@@ -19,6 +21,8 @@ class Matrix(Generic[K]):
         return (self.rows, self.columns)
 
     def is_square(self):
+        print("is_square", self.rows, self.columns)
+        
         return self.rows == self.columns
     
     def size(self):
