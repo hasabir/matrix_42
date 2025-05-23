@@ -15,6 +15,9 @@ class Vector(Generic[K]):
     def __getitem__(self, i: int) -> K:
         return self.vec[i]
     
+    def __setitem__(self, i: int, item) -> None:
+        self.vec[i] = item
+    
     def __str__(self) -> str:
         return str(self.vec)
         # return  "\n".join("[" + ", ".join(str(item)) + "]" for item in self.vec)
@@ -30,8 +33,12 @@ class Vector(Generic[K]):
     
     def shape(self):
         return (self.size(), )
-
     
+    def _is_zero(self):
+        for item in self.vec:
+            if item:
+                return False
+        return True
     # def to_matrix(self, columns, rows):
     #     return Matrix([[self.vec[row + col * rows] for col in range(columns)] for row in range(rows)])
     
