@@ -5,46 +5,41 @@ K = TypeVar('K')
 
 def RowEchelonForm(cls: Type['Matrix[K]']) -> Type['Matrix[K]']:
     def row_echelon(self) -> 'Matrix[K]':
-        #first row
-        
-        # j = 0
-        
-        i = 1
+        pivot = {}
+        i = 0
+        j = 0
         matrix = self.matrix
-
-        i = 1
-        pivot = {'row': 0, 'column': 0}
-        pivot = {0: 0}
-        while i < self.rows:
-            k = i + 1
-            while matrix[i]._is_zero():
-                print('all values in the row are zeros')
-                if matrix[k]:
-                    self.swap(i, k)
-                    k += 1
-                else:
-                    break
-            j = 0
-            while j <= list(pivot)[-1] and j < self.columns:
-                if matrix[i][j] != 0:
-                    x = -matrix[i][j]/ matrix[pivot[i-1]][j]
-                    print('x = ', x)
-                    matrix[i - 1].scl(x)
-                    matrix[i].sub(matrix[i - 1].scl(x))
-                j += 1
-
-            if  j < self.columns and self.matrix[i][j] == 0 and i < self.rows - 1:
-                self.swap_rows(i, i + 1, matrix)
-                j = 0
+        # matrix_columns = self.get_columns()
+        # print("transpose", matrix_columns)
+        for j in range(self.columns):
+            i = 0
+            while i < self.rows and i == 0:
                 i += 1
-            else:
-                pivot[i] = j
-            break
+            if i == 0 and i == self.rows:
+                j += 1
+        
+        
+        # while i < self.rows:
+        #     next_row = i + 1
+        #     while matrix[i]._is_zero() and next_row < self.rows:
+        #         matrix = self.swap_rows(i, next_row, matrix)
+        #         k += 1
+        #     j = 0
+        #     k = 0
+        #     while j <= list(pivot)[-1] and j < self.columns:
+        #         if matrix[i][j] != 0:
+        #             x = -matrix[i][j]/ matrix[pivot[k]][j]
+        #             matrix[i] =  matrix[i].add(matrix[k].scl(x))
+        #         j += 1
+        #         k += 1
                 
-        
-        
-        return  None
-        # return self.print(can_print=False, matrix=matrix)
+        #     if  j < self.columns and self.matrix[i][j] == 0 and i < self.rows - 1:
+        #         matrix = self.swap_rows(i, i + 1, matrix)
+        #     else:
+        #         pivot[i] = j
+        #         i += 1
+
+        return self.print(can_print=False, matrix=matrix)
     if not hasattr(cls, "row_echelon"):
         setattr(cls, "row_echelon", row_echelon)
     

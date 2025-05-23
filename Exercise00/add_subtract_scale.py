@@ -19,14 +19,14 @@ def VectorAddSubScl(cls: Type['Vector[K]']) -> Type['Vector[K]']:
     def sub(self, v: 'Vector[K]') -> 'Vector[K]':
         if len(v.vec) != len(self.vec):
             raise Exception("Different size vectors")
-        new_vec = self.vec
+        new_vec = self.vec.copy()
         for i in range(len(new_vec)):
             new_vec[i] -= v[i]
         return cls(new_vec)
         
     
     def scl(self, a: K) -> 'Vector[K]':
-        new_vec = self.vec
+        new_vec = self.vec.copy()
         for i in range(len(new_vec)):
             new_vec[i] *= a
         return cls(new_vec)

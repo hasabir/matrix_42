@@ -36,7 +36,6 @@ class Matrix(Generic[K]):
         return self.rows * self.columns
     
     def print(self, can_print=True, matrix=None):
-        print(matrix)
         if matrix is None:
             matrix = self.matrix
         matrix = [vector.vec for vector in matrix]
@@ -72,6 +71,9 @@ class Matrix(Generic[K]):
         stock = matrix[row1]
         matrix[row1] = matrix[row2]
         matrix[row2] = stock
-        return matrix
+        if matrix is None:
+            self.matrix = matrix
+        else:
+            return matrix
         # self.vmatrix = self._to_vector_list()
         
