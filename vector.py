@@ -36,9 +36,11 @@ class Vector(Generic[K]):
     
     def _is_zero(self):
         for item in self.vec:
-            if item:
+            if item != 0:
                 return False
         return True
+    
+
     # def to_matrix(self, columns, rows):
     #     return Matrix([[self.vec[row + col * rows] for col in range(columns)] for row in range(rows)])
     

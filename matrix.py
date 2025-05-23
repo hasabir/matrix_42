@@ -17,23 +17,23 @@ class Matrix(Generic[K]):
     def __init__(self, matrix: List[List[K]]):
         # self.matrix = matrix
         self.matrix = [Vector(vec) for vec in matrix]
-        self.rows = len(matrix)
-        self.columns = len(matrix[0]) if matrix else 0
+        self.row_count = len(matrix)
+        self.column_count = len(matrix[0]) if matrix else 0
 
     def __str__(self) -> str:
         matrix = [vector.vec for vector in self.matrix]
         return "[" + ",\n ".join("[" + ", ".join(map(str, row)) + "]" for row in matrix) + "]"
 
     def shape(self):
-        return (self.rows, self.columns)
+        return (self.row_count, self.column_count)
 
     def is_square(self):
-        print("is_square", self.rows, self.columns)
+        print("is_square", self.row_count, self.column_count)
         
-        return self.rows == self.columns
+        return self.row_count == self.column_count
     
     def size(self):
-        return self.rows * self.columns
+        return self.row_count * self.column_count
     
     def print(self, can_print=True, matrix=None):
         if matrix is None:
@@ -47,15 +47,15 @@ class Matrix(Generic[K]):
 
     def to_vector(self) -> List[K]:
         vec = []
-        for i in range(self.columns):
-            for j in range(self.rows):
+        for i in range(self.column_count):
+            for j in range(self.row_count):
                 vec.append(self.matrix[j][i])
         return Vector(vec)
     
     def get_columns(self) -> List[List[K]]:
         vec = []
-        for i in range(self.columns):
-            column = [self.matrix[j][i] for j in range(self.rows)]
+        for i in range(self.column_count):
+            column = [self.matrix[j][i] for j in range(self.row_count)]
             vec.append(column)
         return vec
     
