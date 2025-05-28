@@ -5,13 +5,14 @@ from vector import Vector
 from Exercise08.trace import Trace
 from Exercise09.transpose import Transpose
 from Exercise10.row_echelon_form  import RowEchelonForm
-
+from Exercise11.determinant import Determinant
 K = TypeVar('K')
 
 @Trace
 @Transpose
-@MatrixAddSubScl
+@Determinant
 @RowEchelonForm
+@MatrixAddSubScl
 @LinearMapMatrixMultiplication
 class Matrix(Generic[K]):
     def __init__(self, matrix: List[List[K]]):

@@ -3,9 +3,6 @@ from typing import TypeVar, Generic, List, Type
 K = TypeVar('K')
 
 
-from typing import Type
-
-
 
 def RowEchelonForm(cls: Type['Matrix[K]']) -> Type['Matrix[K]']:
     def row_echelon(self) -> 'Matrix[K]':
