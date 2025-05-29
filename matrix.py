@@ -29,7 +29,6 @@ class Matrix(Generic[K]):
         return (self.row_count, self.column_count)
 
     def is_square(self):
-        print("is_square", self.row_count, self.column_count)
         
         return self.row_count == self.column_count
     
@@ -53,10 +52,12 @@ class Matrix(Generic[K]):
                 vec.append(self.matrix[j][i])
         return Vector(vec)
     
-    def get_columns(self) -> List[List[K]]:
+    def get_columns(self, matrix=None) -> List[List[K]]:
         vec = []
-        for i in range(self.column_count):
-            column = [self.matrix[j][i] for j in range(self.row_count)]
+        if matrix is None:
+            matrix = self.matrix
+        for i in range(len(matrix[0])):
+            column = [matrix[j][i] for j in range(len(matrix))]
             vec.append(column)
         return vec
     
