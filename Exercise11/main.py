@@ -39,14 +39,17 @@ def main():
         ])
         print("det(y):", y.determinant())
         
-        mat4 = Matrix([
-        [1 + 1j,  2 - 2j,  0 + 3j, -1 + 0j],
-        [0 + 2j, -1 + 1j,  4 + 0j,  2 - 1j],
-        [3 + 0j,  0 - 1j, -2 + 2j,  1 + 1j],
-        [1 - 1j,  5 + 0j,  0 + 1j, -3 + 2j]
-        ])
-        det4 = mat4.determinant()
-        print("det(mat4):", det4)
+        
+        
+        
+        # mat4 = Matrix([
+        # [1 + 1j,  2 - 2j,  0 + 3j, -1 + 0j],
+        # [0 + 2j, -1 + 1j,  4 + 0j,  2 - 1j],
+        # [3 + 0j,  0 - 1j, -2 + 2j,  1 + 1j],
+        # [1 - 1j,  5 + 0j,  0 + 1j, -3 + 2j]
+        # ])
+        # det4 = mat4.determinant()
+        # print("det(mat4):", det4)
         
     except Exception as e:
         print(f"Error: {e}")

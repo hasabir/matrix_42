@@ -6,10 +6,12 @@ from Exercise08.trace import Trace
 from Exercise09.transpose import Transpose
 from Exercise10.row_echelon_form  import RowEchelonForm
 from Exercise11.determinant import Determinant
+from Exercise12.inverse import Inverse
 K = TypeVar('K')
 
 @Trace
 @Transpose
+@Inverse
 @Determinant
 @RowEchelonForm
 @MatrixAddSubScl
