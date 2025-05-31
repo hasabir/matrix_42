@@ -41,7 +41,7 @@ def RowEchelonForm(cls: Type['Matrix[K]']) -> Type['Matrix[K]']:
             i += 1
             column += 1
 
-        return self.print(can_print=False, matrix=matrix)
+        return cls(matrix)
 
     if not hasattr(cls, "row_echelon"):
         setattr(cls, "row_echelon", row_echelon)

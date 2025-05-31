@@ -7,11 +7,13 @@ from Exercise09.transpose import Transpose
 from Exercise10.row_echelon_form  import RowEchelonForm
 from Exercise11.determinant import Determinant
 from Exercise12.inverse import Inverse
+from Exercise13.rank import Rank
 K = TypeVar('K')
 
+@Rank
 @Trace
-@Transpose
 @Inverse
+@Transpose
 @Determinant
 @RowEchelonForm
 @MatrixAddSubScl

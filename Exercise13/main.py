@@ -15,24 +15,23 @@ def main():
             [0., 1, 0.],
             [0., 0., 1.],
         ])
-        print("invese(u):\n", u.inverse())
-        
+        print("rank(u):\n", u.rank())
+
         v = Matrix([
-            [2., 0., 0.],
-            [0., 2, 0.],
-            [0., 0., 2.],
+            [1., 2., 0., 0.],
+            [2., 4., 0., 0.],
+            [-1., 2., 1., 1.],
         ])
-        print("invese(v):\n", v.inverse())
-        
+        print("rank(v):\n", v.rank())
+
         y = Matrix([
             [8., 5., -2.],
             [4., 7, 20.],
             [7., 6., 1.],
+            [21., 18., 7.],
         ])
-        print("invese(y):\n", y.inverse())
-        
-        
-        
+        print("rank(y):\n", y.rank())
+
 
     except Exception as e:
         print(f"Error: {e}")
