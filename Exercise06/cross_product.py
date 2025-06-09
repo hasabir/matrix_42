@@ -20,26 +20,3 @@ def cross_product(u: Vector[K], v: Vector[K]) -> Vector[K]:
         u[0]*v[1] - u[1]*v[0]
     ])
 
-
-def main():
-    try:
-        u = Vector([0., 0., 1.])
-        v = Vector([1., 0., 0.])
-        print(cross_product(u, v))
-
-        u = Vector([1., 2., 3.])
-        v = Vector([4., 5., 6.])
-        print(cross_product(u, v))
-
-        u = Vector([4., 2., -3.])
-        v = Vector([-2., -5., 16.])
-        print(cross_product(u, v))
-
-
-    except Exception as e:
-        print(f"Error: {e}")
-
-
-
-if __name__ == "__main__":
-    main()
