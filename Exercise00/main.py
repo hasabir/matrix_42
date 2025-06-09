@@ -15,13 +15,13 @@ def main():
         print(f"v2 = {v2.vec}")
         
         v1.add(v2)
-        print(f"{'*' * 20} v1 + v2 {'*' * 20}\n{v1}")
+        print(f"{'*' * 20} v1 + v2 {'*' * 20}\nv1 = {v1}")
         
         v1.sub(v2)
-        print(f"{'*' * 20} (v1 + v2) - v2 {'*' * 20} \n{v1}")
+        print(f"{'*' * 20} (v1 + v2) - v2 {'*' * 20} \nv1 = {v1}")
         
         v1.scl(2)
-        print(f"{'*' * 20} 2 * v1  {'*' * 20}\n{v1}")
+        print(f"{'*' * 20} 2 * v1  {'*' * 20}\nv1 = {v1}")
         
         print("\nMatrix Operations:")
         m1 = Matrix([[1, 2], [3, 4]])

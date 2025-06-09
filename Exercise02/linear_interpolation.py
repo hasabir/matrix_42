@@ -5,26 +5,19 @@ sys.path.insert(0, os.path.abspath(os.path.join(os.getcwd(), '../')))
 from vector import Vector
 from matrix import Matrix
 from typing import TypeVar, Generic, List
+import warnings
+
+
 import numpy as np
 f32 = np.float32
 V = TypeVar('V')
 
 
 
-
 def lerp(u: V, v: V, t: f32) -> V:
-
+    if t > 1 or t < 0:
+        warnings.warn(f"\033[93m{t} must be real, and 0 ≤t ≤1  (t ∈[0; 1](⊂R))\033[00m")
     if type(u).__name__ == 'Vector' or type(u).__name__ == 'Matrix':
         return u.scl(1 - t).add(v.scl(t))
-    return round(u * (1 - t) + t * v, 1)
+    return u * (1 - t) + t * v
 
-def main():
-    print(lerp(0., 1., 0.))
-    print(lerp(0., 1., 0.5))
-    print(lerp(21., 42., 0.3))
-    print(lerp(Vector([2., 1.]), Vector([4., 2.]), 0.3))
-    print(lerp(Matrix([[2., 1.], [3., 4.]]), Matrix([[20.,10.], [30., 40.]]), 0.5))
-
-
-if __name__ == "__main__":
-    main()
