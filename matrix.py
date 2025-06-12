@@ -82,4 +82,6 @@ class Matrix(Generic[K]):
         else:
             return matrix
         # self.vmatrix = self._to_vector_list()
-        
+    
+    def _copy(self):
+        return Matrix([row._copy() for row in self.matrix])

@@ -9,7 +9,7 @@ def RowEchelonForm(cls: Type['Matrix[K]']) -> Type['Matrix[K]']:
  
     def row_echelon(self) -> 'Matrix[K]':
         matrix = self.matrix
-        row_index, column_index, old_pivot_row = 0, 0, None
+        row_index, column_index = 0, 0
         
         
         while row_index < self.row_count and column_index < self.column_count:

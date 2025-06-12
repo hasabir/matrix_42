@@ -66,6 +66,19 @@ def main():
         print(u.mul_mat(v))
         print("******************")
         
+        
+        u = Matrix([[0., 2., 1.],
+                   [0., -2., 3.],
+                   [0., 1., 8.]])
+        
+        P = Matrix([[0., 0., 1.],
+                   [0., 1., 0.],
+                   [1., 0., 0.]])
+        print(P.mul_mat(u))
+        
+        
+
+        
     except Exception as e:
         print(f"Error: {e}")
 

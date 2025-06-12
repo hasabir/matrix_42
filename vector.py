@@ -40,6 +40,9 @@ class Vector(Generic[K]):
                 return False
         return True
     
+    def _copy(self):
+        return Vector(self.vec.copy())
+    
 
     # def to_matrix(self, columns, rows):
     #     return Matrix([[self.vec[row + col * rows] for col in range(columns)] for row in range(rows)])
