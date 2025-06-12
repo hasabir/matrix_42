@@ -41,7 +41,7 @@ class Vector(Generic[K]):
         return True
     
     def _copy(self):
-        return Vector(self.vec.copy())
+        return Vector(list(self.vec).copy())
     
 
     # def to_matrix(self, columns, rows):

@@ -46,20 +46,10 @@ def main():
             [28., -4., 17., 1.]
         ])
         print("det(x):", x.determinant())
-        
-        
-        u = Matrix([
-            [0., 2., 1.],
-            [1., 0., 3.],
-            [4., 5., 6.],
-        ])
-        
-        print("det(u):", u.determinant())
-        print("det(u):", u.determinant_v2())
 
-    except Exception as e:
+    except ValueError as e:
         print(f"Error: {e}")
-        # traceback.print_exc()
+        traceback.print_exc()
         
 
 if __name__ == "__main__":

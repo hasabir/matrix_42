@@ -84,4 +84,7 @@ class Matrix(Generic[K]):
         # self.vmatrix = self._to_vector_list()
     
     def _copy(self):
+        for row in self.matrix:
+            if not isinstance(row, Vector):
+                raise TypeError("Matrix rows must be of type Vector")
         return Matrix([row._copy() for row in self.matrix])
