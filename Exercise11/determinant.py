@@ -6,21 +6,26 @@ def Determinant(cls: Type['Matrix[K]']) -> Type['Matrix[K]']:
 
     @classmethod
     def get_permutation_matrix(cls, A, column_index, row_index) -> 'Matrix[K]':
+        ''' Returns a permutation matrix that swaps the current row with the row containing the pivot element. '''
         P = cls([[1 if i == j else 0 for i in range(A.column_count)] for j in range(A.row_count)])
         pivot_index = row_index
+        # Find the row with the largest absolute value in the current column
         for i in range(row_index, A.row_count):
             if abs(A.matrix[i][column_index]) > abs(A.matrix[pivot_index][column_index]):
                 pivot_index = i
+        # Swap the current row with the pivot row in the permutation matrix
         if pivot_index != row_index:
             P.swap_rows(pivot_index, row_index)
         return P
 
 
     def determinant(self) -> K:
+        ''' Returns the determinant of the matrix using Gaussian elimination. '''
         if not self.is_square():
             raise ValueError(f"Matrix {self.print(False)} is not a square matrix")
         row_index, column_index, pivot_times = 0, 0, 0
         upper = self._copy()
+        # Perform Gaussian elimination to convert the matrix to upper triangular form
         while row_index < self.row_count and column_index < self.column_count:
             j = row_index
             while j < self.row_count and upper.matrix[j][column_index] == 0:
