@@ -7,23 +7,23 @@ from matrix import Matrix
 
 def main():
     try:
-        m = Matrix(
-            [[1, 2],
-            [3, 4]])
-        print(m.trace())
-        print("********************")
+        # m = Matrix(
+        #     [[1, 2],
+        #     [3, 4]])
+        # print(m.trace())
+        # print("********************")
         
         
-        m = Matrix([
-            [1, 2, 3],
-            [4, 5, 6],
-            [7, 8, 9]])
-        print(m.trace())
-        print("********************")
+        # m = Matrix([
+        #     [1, 2, 3],
+        #     [4, 5, 6],
+        #     [7, 8, 9]])
+        # print(m.trace())
+        # print("********************")
         
-        m = Matrix([[1]])
-        print(m.trace())
-        print("********************")
+        # m = Matrix([[1]])
+        # print(m.trace())
+        # print("********************")
         
         
         u = Matrix([[1, 0],

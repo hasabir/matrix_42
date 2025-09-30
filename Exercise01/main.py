@@ -16,8 +16,8 @@ def main():
         v2 = Vector([0., 10., -100.])
         
 
-        print(linear_combination(Vector[f32]([v1, v2]), list[f32]([10., -2])))
         print(linear_combination(Vector[f32]([e1, e2, e3]), list[f32]([10., -2, 0.5])))
+        print(linear_combination(Vector[f32]([v1, v2]), list[f32]([10., -2])))
     except Exception as e:
         print(f"Error: {e}")
 

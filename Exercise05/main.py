@@ -14,7 +14,7 @@ def main():
         print(angle_cos(u, v))
 
         u = Vector([-1., 1.])
-        v = Vector([1., 0.])
+        v = Vector([1., -1.])
         print(angle_cos(u, v))
 
         u = Vector([2., 1.])

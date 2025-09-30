@@ -16,7 +16,7 @@ def main():
     print(u.dot(v))
 
     u = Vector([-1., 6.])
-    v = Vector([31., 2.])
+    v = Vector([3., 2.])
     print(u.dot(v))
 
 
